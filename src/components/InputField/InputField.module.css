@@ -1,0 +1,57 @@
+.inputWrapper {
+  position: relative;
+}
+
+input {
+  width: 24.7rem;
+  padding: 1.2rem 1.2rem 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: rgba(29, 31, 38, 0.8);
+  background-color: rgba(165, 174, 189, 0.1);
+  border: 1px solid rgba(165, 174, 189, 0.2);
+  border-radius: 9px;
+}
+
+input::placeholder {
+  color: rgba(165, 174, 189, 1);
+}
+
+input:focus,
+input:hover {
+  box-shadow: 0 0 0 2px #2f7bff;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.errorControl {
+  padding: 1.2rem 3.6rem 1.2rem 1.6rem;
+  outline: 2px solid var(--negative-alpha-100, #f04);
+}
+
+.errorControl:focus,
+.errorControl:hover {
+  outline: 2px solid var(--negative-alpha-100, #f04);
+}
+
+.errorMessage {
+  position: absolute;
+  color: var(--negative-alpha-100, #f04);
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  padding-top: 0.8rem;
+}
+
+.icon {
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+}

@@ -1,0 +1,17 @@
+html {
+  font-size: 62.5%;
+  min-height: 100%;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: rgba(29, 31, 38, 0.8);
+  width: 100%;
+  margin: 0;
+}
