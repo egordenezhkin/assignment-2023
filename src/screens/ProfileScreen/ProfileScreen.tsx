@@ -1,13 +1,15 @@
 import styles from "./ProfileScreen.module.css";
-import { Container } from "../../components/Container";
-import { Logo } from "../../components/Logo";
-import { Card } from "../../components/Card";
-import { PrimaryButton } from "../../components/PrimaryButton";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Container from "src/components/Container";
+import Logo from "src/components/Logo";
+import Card from "src/components/Card";
+import PrimaryButton from "src/components/PrimaryButton";
 
 export function ProfileScreen() {
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const logout = () => {
     setLoading(true);
@@ -19,8 +21,6 @@ export function ProfileScreen() {
       }, 1000);
     });
   };
-
-  const navigate = useNavigate();
 
   return (
     <Container>

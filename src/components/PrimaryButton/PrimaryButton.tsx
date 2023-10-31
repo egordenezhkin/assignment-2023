@@ -7,13 +7,13 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-export function PrimaryButton({
+const PrimaryButton = ({
   onSubmit,
   children,
   loading = false,
   disabled,
   ...attributes
-}: Props) {
+}: Props) => {
   return (
     <button
       className={styles.button}
@@ -32,4 +32,6 @@ export function PrimaryButton({
       )}
     </button>
   );
-}
+};
+
+export default PrimaryButton;

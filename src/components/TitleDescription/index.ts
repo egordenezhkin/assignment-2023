@@ -1,1 +1,1 @@
-export * from "./TitleDescription";
+export { TitleDescription as default } from "./TitleDescription";

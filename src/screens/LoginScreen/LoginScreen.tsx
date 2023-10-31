@@ -1,14 +1,14 @@
 import styles from "./LoginScreen.module.css";
 import { useState } from "react";
-import { Container } from "../../components/Container";
-import { Logo } from "../../components/Logo";
-import { Card } from "../../components/Card";
-import { TitleDescription } from "../../components/TitleDescription";
-import { PrimaryButton } from "../../components/PrimaryButton";
-import { login } from "../../api";
-import { SubmitHandler, useForm } from "react-hook-form";
-import InputField from "../../components/InputField/InputField";
 import { useNavigate } from "react-router-dom";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { login } from "src/api";
+import Container from "src/components/Container";
+import Logo from "src/components/Logo";
+import Card from "src/components/Card";
+import TitleDescription from "src/components/TitleDescription";
+import PrimaryButton from "src/components/PrimaryButton";
+import InputField from "src/components/InputField";
 
 interface LoginForm {
   email: string;
@@ -38,14 +38,14 @@ export function LoginScreen() {
     setLoading(true);
     try {
       const response = await login(data);
-      if (response.error) {
+      if (response.data) {
+        console.log("User logged in:", response.data);
+        navigate("/profile");
+        setLoading(false);
+      } else {
         console.error(response.error);
         setLoginErrorForPasswordField(true);
         setError("email", { message: response.error });
-        setLoading(false);
-      } else {
-        console.log("User logged in:", response.data);
-        navigate("/logout");
         setLoading(false);
       }
     } catch (error) {

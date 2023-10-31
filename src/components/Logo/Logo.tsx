@@ -1,6 +1,6 @@
 import styles from "./Logo.module.css";
 
-export function Logo() {
+const Logo = () => {
   return (
     <img
       className={styles.logo}
@@ -8,4 +8,6 @@ export function Logo() {
       src="/assets/Mercury-logotype.svg"
     />
   );
-}
+};
+
+export default Logo;
