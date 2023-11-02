@@ -32,6 +32,7 @@
 .button:disabled {
   background: var(--accent-pressed-alpha-100, #0057ff);
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .loaderIcon {
