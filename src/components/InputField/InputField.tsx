@@ -1,14 +1,14 @@
 import styles from "./InputField.module.css";
 import { forwardRef } from "react";
 
-type FieldProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> & {
+type FieldProps = {
   error?: any;
   clearErrors?: () => void;
   disabled?: boolean;
-};
+} & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
 const InputField = forwardRef<HTMLInputElement, FieldProps>(
   ({ error, clearErrors, id, disabled, ...rest }, ref) => {

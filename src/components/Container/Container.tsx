@@ -1,10 +1,9 @@
+import { PropsWithChildren } from "react";
 import styles from "./Container.module.css";
 
-type ContainerProps = {
-  children: React.ReactNode;
-};
+type ContainerProps = {};
 
-const Container = (props: ContainerProps) => {
+const Container = (props: PropsWithChildren<ContainerProps>) => {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>{props.children}</div>

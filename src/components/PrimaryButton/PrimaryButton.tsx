@@ -1,11 +1,11 @@
 import styles from "./PrimaryButton.module.css";
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = {
   onSubmit: () => void;
   children: React.ReactNode;
   loading?: boolean;
   disabled?: boolean;
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const PrimaryButton = ({
   onSubmit,
@@ -13,7 +13,7 @@ const PrimaryButton = ({
   loading = false,
   disabled,
   ...attributes
-}: Props) => {
+}: ButtonProps) => {
   return (
     <button
       className={styles.button}
