@@ -29,9 +29,6 @@ export function LoginScreen() {
 
   const navigate = useNavigate();
 
-  const [loginErrorForPasswordField, setLoginErrorForPasswordField] =
-    useState(false);
-
   const [loading, setLoading] = useState(false);
 
   const submit: SubmitHandler<LoginForm> = async (data) => {
@@ -44,8 +41,8 @@ export function LoginScreen() {
         setLoading(false);
       } else {
         console.error(response.error);
-        setLoginErrorForPasswordField(true);
         setError("email", { message: response.error });
+        setError("password", { message: " " });
         setLoading(false);
       }
     } catch (error) {
@@ -57,7 +54,6 @@ export function LoginScreen() {
   const clearError = (name: "email" | "password") => {
     clearErrors(name);
     resetField(name);
-    setLoginErrorForPasswordField(false);
   };
 
   return (
@@ -90,7 +86,7 @@ export function LoginScreen() {
                 {...register("password", {
                   required: "Password is required",
                 })}
-                error={errors.password?.message || loginErrorForPasswordField}
+                error={errors.password?.message}
               />
             </div>
             <PrimaryButton
