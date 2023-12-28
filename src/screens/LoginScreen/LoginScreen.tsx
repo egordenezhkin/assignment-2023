@@ -10,10 +10,10 @@ import TitleDescription from "src/components/TitleDescription";
 import PrimaryButton from "src/components/PrimaryButton";
 import InputField from "src/components/InputField";
 
-interface LoginForm {
+type LoginFormValues = {
   email: string;
   password: string;
-}
+};
 
 export function LoginScreen() {
   const {
@@ -23,15 +23,13 @@ export function LoginScreen() {
     setError,
     clearErrors,
     resetField,
-  } = useForm<LoginForm>({
-    mode: "onChange",
-  });
+  } = useForm<LoginFormValues>();
 
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
-  const submit: SubmitHandler<LoginForm> = async (data) => {
+  const submit: SubmitHandler<LoginFormValues> = async (data) => {
     setLoading(true);
     try {
       const response = await login(data);
