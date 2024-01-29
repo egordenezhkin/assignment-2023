@@ -6,13 +6,13 @@ interface LoginResponse {
   error?: string;
 }
 
-export function login({
+const login = ({
   email,
   password,
 }: {
   email: string;
   password: string;
-}): Promise<LoginResponse> {
+}): Promise<LoginResponse> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       if (email === "elon@mercdev.com" && password === "twitter") {
@@ -22,4 +22,6 @@ export function login({
       }
     }, 1000);
   });
-}
+};
+
+export default login;

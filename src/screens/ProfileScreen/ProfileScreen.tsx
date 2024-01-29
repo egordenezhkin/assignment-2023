@@ -1,12 +1,14 @@
 import styles from "./ProfileScreen.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import store from "src/store";
 import Container from "src/components/Container";
 import Logo from "src/components/Logo";
 import Card from "src/components/Card";
 import PrimaryButton from "src/components/PrimaryButton";
+import { observer } from "mobx-react-lite";
 
-export function ProfileScreen() {
+const ProfileScreen = observer(() => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ export function ProfileScreen() {
       setTimeout(() => {
         resolve(navigate("/"));
         console.log(`You've been successfully logged out`);
+        store.logout();
         setLoading(false);
       }, 1000);
     });
@@ -30,10 +33,10 @@ export function ProfileScreen() {
           <div className={styles.avatarWithTitle}>
             <img
               className={styles.avatar}
-              src="/assets/avatar.jpeg"
+              src={"/assets" + store.avatar}
               alt="avatar"
             />
-            <h1 className={styles.title}>That’s it, Elon!</h1>
+            <h1 className={styles.title}>That’s it, {store.name}!</h1>
           </div>
           <PrimaryButton
             onSubmit={() => logout()}
@@ -51,4 +54,6 @@ export function ProfileScreen() {
       </Card>
     </Container>
   );
-}
+});
+
+export default ProfileScreen;

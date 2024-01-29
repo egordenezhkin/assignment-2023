@@ -2,7 +2,9 @@ import styles from "./LoginScreen.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { login } from "src/api";
+import { observer } from "mobx-react-lite";
+import login from "src/api";
+import store from "src/store";
 import Container from "src/components/Container";
 import Logo from "src/components/Logo";
 import Card from "src/components/Card";
@@ -15,7 +17,7 @@ type LoginFormValues = {
   password: string;
 };
 
-export function LoginScreen() {
+const LoginScreen = observer(() => {
   const {
     register,
     handleSubmit,
@@ -34,6 +36,7 @@ export function LoginScreen() {
     try {
       const response = await login(data);
       if (response.data) {
+        store.login(response.data.name, response.data.avatar);
         console.log("User logged in:", response.data);
         navigate("/profile");
         setLoading(false);
@@ -104,4 +107,6 @@ export function LoginScreen() {
       </Card>
     </Container>
   );
-}
+});
+
+export default LoginScreen;

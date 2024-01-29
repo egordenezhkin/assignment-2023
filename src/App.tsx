@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { LoginScreen } from "./screens/LoginScreen";
-import { ProfileScreen } from "./screens/ProfileScreen";
+import LoginScreen from "./screens/LoginScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   return (
