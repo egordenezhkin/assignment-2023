@@ -1,6 +1,6 @@
 import styles from "./TitleDescription.module.css";
 
-export function TitleDescription() {
+const TitleDescription = () => {
   return (
     <div className={styles.welcome}>
       <h1 className={styles.title}>Welcome, Stranger!</h1>
@@ -9,4 +9,6 @@ export function TitleDescription() {
       </h2>
     </div>
   );
-}
+};
+
+export default TitleDescription;
